@@ -1,0 +1,87 @@
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  Alert,
+  Image,
+} from 'react-native';
+
+export default function App() {
+  const [email] = useState('');
+  const [senha] = useState('');
+
+  const handleLogin = () => {
+    Alert.alert('WMtunes', `Email: ${email}\nSenha: ${senha}`);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('./assets/logoWM.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+
+      <Text style={styles.label}>E-mail:</Text>
+      <TextInput style={styles.input} />
+
+      <Text style={styles.label}>Senha:</Text>
+      <TextInput style={styles.input} />
+
+      <Text style={styles.label}>Entrar como:</Text>
+
+      <View style={styles.buttonRow}>
+        <Button title="Usuário" onPress={() => setTipoConta('usuario')} />
+        <Button onPress={() => router.navigate('/CadastroUsuario')}>Go to About</Button>;
+        <View style={styles.buttonSpacer} />
+        <Button title="Artista" onPress={() => setTipoConta('artista')} />
+        <Button onPress={() => router.navigate('/CadastroArtista')}>Go to About</Button>;
+      </View>
+
+      <Text style={styles.label}>Não tem conta?</Text>
+
+      <Button title="Criar uma conta" onPress={handleLogin} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#220A34',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    marginBottom: 30,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    marginTop: 15,
+    color: '#fff',
+  },
+  input: {
+    height: 50,
+    borderColor: '#888',
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    backgroundColor: '#EFDAFF',
+  },
+  buttonRow: {
+    justifyContent: 'center',
+    marginTop: 10,
+    gap: 2,
+  },
+  buttonSpacer: {
+    width: 20,
+  },
+});
