@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 
-export default function App() {
+export default function CadastroArtista() {
   const [email] = useState('');
   const [senha] = useState('');
   const [telefone] = useState('');
@@ -37,16 +37,11 @@ export default function App() {
       <Text style={styles.label}>Cpf:</Text>
       <TextInput style={styles.input} />
 
-
       <View style={styles.buttonRow}>
-        <Button title="Usuário" onPress={() => setTipoConta('usuario')} />
-        <View style={styles.buttonSpacer} />
-        <Button title="Artista" onPress={() => setTipoConta('artista')} />
+        <Button  onPress={handleLogin} />
+        <Button title="Próximo" onPress={() => router.navigate('/TelaArtista')}/>;
       </View>
 
-      <Text style={styles.label}>Não tem conta?</Text>
-
-      <Button title="Criar uma conta" onPress={handleLogin} />
     </View>
   );
 }

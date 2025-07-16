@@ -10,7 +10,7 @@ import {
   Image,
 } from 'react-native';
 
-export default function App() {
+export default function UsuarioPrincipal() {
   const [email] = useState('');
   const [senha] = useState('');
 
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#220A34',
   },
   logo: {
-    width: 400,
-    height: 400,
+    width: 200,
+    height: 200,
     alignSelf: 'center',
     marginBottom: 30,
   },
