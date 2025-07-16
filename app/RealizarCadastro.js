@@ -22,8 +22,7 @@ export default function RealizarCadastro() {
         <Button title="Usuario" onPress={() => router.navigate('/CadastroUsuario')}/>;
 
         <View style={styles.buttonSpacer} />
-        <Button title="Artista" onPress={() => setTipoConta('artista')} />
-        <Button title="Go to About" onPress={() => router.navigate('/CadastroArtista')}/>;
+        <Button title="Artista" onPress={() => router.navigate('/CadastroArtista')}/>;
 
     </View>
 );

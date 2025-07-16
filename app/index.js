@@ -45,7 +45,7 @@ export default function App() {
 
       <Text style={styles.label}>Não tem conta?</Text>
 
-      <Button title="Criar uma conta" onPress={handleLogin} />
+      <Button title="Criar uma conta" onPress={() => router.navigate('/RealizarCadastro')}/>;
     </View>
   );
 }

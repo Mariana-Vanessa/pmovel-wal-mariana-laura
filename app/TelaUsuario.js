@@ -6,25 +6,12 @@ import {
   TextInput,
   Button,
   StyleSheet,
-  Alert,
-  Image,
 } from 'react-native';
 
-export default function UsuarioPrincipal() {
-  const [email] = useState('');
-  const [senha] = useState('');
-
-  const handleLogin = () => {
-    Alert.alert('WMtunes', `Email: ${email}\nSenha: ${senha}`);
-  };
+export default function TelaUsuario(){
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('./assets/logoWM.png')}
-        style={styles.logo}
-        resizeMode="contain"
-      />
 
       <Text style={styles.label}>E-mail:</Text>
       <TextInput style={styles.input} />
@@ -56,12 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     backgroundColor: '#220A34',
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    marginBottom: 30,
   },
   label: {
     fontSize: 16,

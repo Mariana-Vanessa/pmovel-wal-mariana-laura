@@ -19,6 +19,7 @@ export default function Contatos() {
       <Text style={styles.label}>Artista 2</Text>
       <Text style={styles.label}>Artista 3</Text>
       <Text style={styles.label}>Artista 4</Text>
+      <Text style={styles.label}>Artista 4</Text>
 
     </View>
         
@@ -31,12 +32,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     backgroundColor: '#220A34',
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    marginBottom: 30,
   },
   label: {
     fontSize: 16,

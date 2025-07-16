@@ -53,12 +53,6 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#220A34',
   },
-  logo: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    marginBottom: 30,
-  },
   label: {
     fontSize: 16,
     marginBottom: 5,
