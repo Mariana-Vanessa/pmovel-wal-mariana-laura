@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import {auth} from 'expo'
+import { auth } from '../firebase.config';
+import { signInWithEmailAndPassword } from "firebase/auth";
 import{
   View,
   Text,
@@ -11,17 +12,24 @@ import{
   Image,
 } from 'react-native';
 
-
-const auth = getAuth(App);
-  export {auth}
-
 export default function App() {
-  const [email] = useState('');
-  const [senha] = useState('');
+  const [email, setEmail] = useState('mvs38@aluno.ifal.edu.br');
+  const [senha, setSenha] = useState('');
 
-  const handleLogin = () => {
-    Alert.alert('WMtunes', `Email: ${email}\nSenha: ${senha}`);
-  };
+  const handleLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+      const user = userCredential.user;
+      console.log(user);
+      router.navigate('/CadastroUsuario')
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode);
+      console.error(errorMessage);
+    }    
+  }
+;
 
   return (
     <View style={styles.container}>
@@ -32,25 +40,25 @@ export default function App() {
       />
 
       <Text style={styles.label}>E-mail:</Text>
-      <TextInput style={styles.input} />
+      <TextInput style={styles.input} value={email} onChangeText={a => setEmail(a)}/>
 
       <Text style={styles.label}>Senha:</Text>
-      <TextInput style={styles.input} />
+      <TextInput style={styles.input} value={senha} onChangeText={a => setSenha(a)}/>
 
       <Text style={styles.label}>Entrar como:</Text>
 
       <View style={styles.buttonRow}>
 
-        <Button title="Usuário" onPress={() => router.navigate('/CadastroUsuario')}/>;
+        <Button title="Usuário" onPress={handleLogin}/>
 
         <View style={styles.buttonSpacer} />
-        <Button title="Artista" onPress={() => router.navigate('/CadastroArtista')}/>;
+        <Button title="Artista" onPress={() => router.navigate('/CadastroArtista')}/>
 
       </View>
 
       <Text style={styles.label}>Não tem conta?</Text>
 
-      <Button title="Criar uma conta" onPress={() => router.navigate('/RealizarCadastro')}/>;
+      <Button title="Criar uma conta" onPress={() => router.navigate('/RealizarCadastro')}/>
     </View>
   );
 }
