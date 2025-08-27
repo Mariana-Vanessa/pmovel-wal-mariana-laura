@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import {
+import {auth} from 'expo'
+import{
   View,
   Text,
   TextInput,
@@ -9,6 +10,10 @@ import {
   Alert,
   Image,
 } from 'react-native';
+
+
+const auth = getAuth(App);
+  export {auth}
 
 export default function App() {
   const [email] = useState('');
